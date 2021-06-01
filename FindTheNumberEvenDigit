@@ -1,0 +1,16 @@
+//https://leetcode.com/problems/find-numbers-with-even-number-of-digits/submissions/
+class Solution {
+    public int findNumbers(int[] nums) {
+        
+        int count = 0;
+        for (int i=0;i<nums.length;i++) {
+            
+            int noOfDigit = (int) (Math.log10(nums[i])+1);
+            
+            if (noOfDigit%2==0) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
