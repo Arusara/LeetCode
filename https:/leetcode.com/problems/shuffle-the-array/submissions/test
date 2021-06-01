@@ -1,0 +1,23 @@
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        
+        int result[] = new int[nums.length];
+        
+        int counter=1;
+        int temp = 0;
+        int temp1 = n;
+        int replace =0;
+
+        while(counter<=n) {
+            
+            result[replace] = nums[temp];
+            result[replace+1] = nums[temp1];
+            replace +=2;
+            temp++;
+            temp1++;
+            counter++;
+        }
+        return result;
+        
+    }
+}
