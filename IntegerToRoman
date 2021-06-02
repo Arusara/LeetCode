@@ -1,0 +1,81 @@
+// https://leetcode.com/problems/roman-to-integer/submissions/
+
+
+
+class Solution {
+     public static int romanToInt(String s) {
+
+        int value = 0;
+        int n = s.length();
+        for (int i=0;i<s.length();) {
+            char ch = s.charAt(i);
+
+            if (ch=='I') {
+
+                if (i+1<n) {
+                    if (s.charAt(i+1)=='V') {
+                        value = value +4;
+                        i= i+2;
+                    } else if (s.charAt(i+1)=='X') {
+                        value = value +9;
+                        i= i+2;
+                    } else {
+                        value = value + 1;
+                        i++;
+                    }
+                } else {
+                    value = value +1;
+                    i++;
+                }
+
+            } else if (ch=='V') {
+                value = value + 5;
+                i++;
+            } else if (ch=='X') {
+                if (i+1<n) {
+                    if (s.charAt(i+1)=='L') {
+                        value = value +40;
+                        i= i+2;
+                    } else if (s.charAt(i+1)=='C') {
+                        value = value +90;
+                        i= i+2;
+                    } else {
+                        value = value + 10;
+                        i++;
+                    }
+                } else {
+                    value = value +10;
+                    i++;
+                }
+            } else if (ch=='L') {
+                value = value + 50;
+                i++;
+            } else if (ch=='C') {
+                if (i+1<n) {
+                    if (s.charAt(i+1)=='D') {
+                        value = value +400;
+                        i= i+2;
+                    } else if (s.charAt(i+1)=='M') {
+                        value = value +900;
+                        i= i+2;
+                    } else {
+                        value = value + 100;
+                        i++;
+                    }
+                } else {
+                    value = value +100;
+                    i++;
+                }
+
+            } else if (ch=='D') {
+                value = value + 500;
+                i++;
+            } else if (ch=='M') {
+                value = value +1000;
+                i++;
+            }
+        }
+        return value;
+
+    }
+}
