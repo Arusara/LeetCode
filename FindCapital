@@ -1,0 +1,44 @@
+class Solution {
+    public boolean detectCapitalUse(String word) {
+        
+         if (word.length() == 1) {
+            return true;
+        }
+        
+        char ch = word.charAt(0);
+        char ch1 = word.charAt(1);
+
+        
+        boolean isUpper = false;
+        if (Character.isUpperCase(ch)) {
+            isUpper = true;
+        }
+        
+        boolean isUpper1 = false;
+        if (Character.isUpperCase(ch1)) {
+            isUpper1 = true;
+        }
+        
+        
+        
+        for (int i=1;i<word.length();i++) {
+            
+            if (isUpper && isUpper1) {
+                char value = word.charAt(i);
+                if (Character.isLowerCase(value)) {
+                    return false;
+                }
+            } else {
+                char value1 = word.charAt(i);
+                if (Character.isUpperCase(value1)) {
+                    return false;
+                }
+                
+            }
+            
+            
+        }
+        return true;
+        
+    }
+}
